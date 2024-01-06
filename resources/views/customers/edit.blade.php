@@ -20,6 +20,7 @@
                         enctype="multipart/form-data">
                         @csrf
                         @method('patch')
+
                         <div class="form-group">
                             <label for="nama">Nama Customers</label>
                             <input type="text" class="form-control" name="nama_customer" placeholder="Name Customers"

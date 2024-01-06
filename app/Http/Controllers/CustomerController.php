@@ -54,9 +54,9 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customers)
+    public function edit($id)
     {
-        $customers = Customer::all();        //dd(customer);
+        $customers = Customer::find($id);        //dd(customer);
         return view("customers.edit")->with("customers", $customers);
     }
 
@@ -83,8 +83,9 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customers)
+    public function destroy($id)
     {
+        $customers = Customer::find($id);
         $customers->delete();
         return redirect("customers")->with("success", "Berhasil Dihapus");
     }
