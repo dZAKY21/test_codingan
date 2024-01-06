@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('layout.main');
 });
 
-Route::delete('customers', [CustomerController::class, 'destroy']);
+
 Route::resource('customers', CustomerController::class);

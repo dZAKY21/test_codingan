@@ -13,13 +13,14 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view("customers.index")->with("customers", $customers);
+        return view("customers.index", compact("customers"));
     }
 
 
     public function create()
     {
-        return view("customers.create");
+        $customers = Customer::all();
+        return view("customers.create")->with("customers", $customers);
     }
 
     /**

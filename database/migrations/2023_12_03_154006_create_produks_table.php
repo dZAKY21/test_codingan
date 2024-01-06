@@ -14,9 +14,14 @@ return new class extends Migration {
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama_produk', 50);
+<<<<<<< Updated upstream
+            $table->decimal('harga', 8);
+=======
             $table->decimal('harga', 8, 2);
+>>>>>>> Stashed changes
             $table->integer('stok', 10);
-            $table->string('deskripsi');
+            $table->string('deskripsi', 150);
+            $table->foreign('kategori_produk_id')->references('id')->on('kategori_produks')->restrictOnDelete()->restrictOnUpdate;
             $table->timestamps();
         });
     }

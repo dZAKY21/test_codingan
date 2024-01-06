@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('data_penjualans', function (Blueprint $table) {
             $table->uuid('id');
+            $table->primary('id');
             $table->date('tanggal');
-            $table->string('nama produk', 70);
+            $table->string('nama_produk', 70);
             $table->integer('total_penjualan', 10);
-            $table->decimal('total_harga', 15,2);
+            $table->decimal('total_harga', 15);
+            $table->foreign('produk_id')->references('id')->on('produks')->restrictOnDelete()->restrictOnUpdate;
             $table->timestamps();
         });
     }
