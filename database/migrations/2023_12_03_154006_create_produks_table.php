@@ -16,8 +16,7 @@ return new class extends Migration {
             $table->decimal('harga', 8, 2);
             $table->integer('stok', 10);
             $table->string('deskripsi');
-            $table->uuid('kategori_produk_id');
-            $table->foreign('kategori_produk_id')->references('id')->on('kategori_produk')->onDelete('restrict')->onUpdate('restrict');
+
             $table->timestamps();
         });
     }
