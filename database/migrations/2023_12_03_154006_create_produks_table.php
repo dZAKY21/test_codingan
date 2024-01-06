@@ -12,16 +12,12 @@ return new class extends Migration {
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->uuid('id');
-            $table->primary('id');
             $table->string('nama_produk', 50);
-<<<<<<< Updated upstream
-            $table->decimal('harga', 8);
-=======
             $table->decimal('harga', 8, 2);
->>>>>>> Stashed changes
             $table->integer('stok', 10);
-            $table->string('deskripsi', 150);
-            $table->foreign('kategori_produk_id')->references('id')->on('kategori_produks')->restrictOnDelete()->restrictOnUpdate;
+            $table->string('deskripsi');
+            $table->uuid('kategori_produk_id');
+            $table->foreign('kategori_produk_id')->references('id')->on('kategori_produk')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
     }

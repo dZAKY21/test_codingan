@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('kategori_produks', function (Blueprint $table) {
+        Schema::create('kategori_produk', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama_kategori', 50);
