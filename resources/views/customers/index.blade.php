@@ -7,6 +7,7 @@
     <div class="card">
         <div class="card-header pb-0">
 
+
             <div class="row">
                 <div class="card-body">
 
@@ -31,44 +32,48 @@
                             <div class="box-body">
 
                                 <div class="table-responsive">
-                                    <table class="table">
 
-                                        <thead>
-                                            <tr>
+
+                                    <thead>
+                                        <tr>
+                                            <table class="table align-items-center mb-0">
                                                 <th>Nama Customer</th>
                                                 <th>Alamat</th>
-                                                <th>Email</th>
-                                                <th>Foto</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">Foto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div class="d-flex px-2 py-1">
+
                                             @foreach ($customers as $item)
                                             <tr>
+
                                                 <td>{{ $item['nama_customer'] }}</td>
                                                 <td>{{ $item['alamat'] }}</td>
-                                                <td>{{ $item['email'] }}</td>
-                                                <td><img src="foto/{{ $item['foto'] }}" class="rounded-circle"
-                                                        width="70px" />
+                                                <td class="align-middle text-center">{{ $item['email'] }}</td>
+                                                <td class="align-middle text-center"><img src="foto/{{ $item['foto'] }}"
+                                                        class="rounded-circle" width="70px" />
                                                 <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <a href="{{ route('customers.edit', $item->id) }}">
-                                                            <button class="btn btn-success btn-sm mx-3">Edit</button>
-                                                        </a>
-                                                        <form method="POST"
-                                                            action="{{ route('customers.destroy', $item->id) }}">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <input name="_method" type="hidden" value="DELETE">
-                                                            <button type="submit"
-                                                                class="btn btn-xs btn-danger btn-rounded show_confirm"
-                                                                data-toggle="tooltip" title='Delete'
-                                                                data-nama='{{ $item->nama }}'>Hapus</button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{ route('customers.edit', $item->id) }}">
+                                                <button class="btn btn-success  btn-xs mx-3">Edit</button>
+                                            </a>
+                                            <form method="POST" action="{{ route('customers.destroy', $item->id) }}">
+                                                @method('delete')
+                                                @csrf
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit"
+                                                    class="btn btn-xs btn-danger btn-rounded show_confirm"
+                                                    data-toggle="tooltip" title='Delete'
+                                                    data-nama='{{ $item->nama }}'>Hapus</button>
+                                            </form>
+                                        </div>
+                                        </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -104,7 +109,7 @@
                         form.submit();
                     }
                 });
-        });
+     );
     </script>
 
     </body>
