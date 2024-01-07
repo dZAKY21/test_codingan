@@ -12,7 +12,8 @@ class DataPenjualanController extends Controller
      */
     public function index()
     {
-        //
+        $data_penjualans = DataPenjualan::all();
+        return view("dataPenjualan.index", compact("dataPenjualan"));
     }
 
     /**
@@ -20,7 +21,10 @@ class DataPenjualanController extends Controller
      */
     public function create()
     {
-        //
+        $data_penjualans = DataPenjualan::all();
+        return view("dataPenjualan.create")->with("dataPenjualan", $data_penjualans);
+
+
     }
 
     /**

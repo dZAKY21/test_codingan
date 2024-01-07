@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('kategori_produks', function (Blueprint $table) {
             $table->uuid('id');
-
             $table->string('nama_kategori', 50);
             $table->timestamps();
         });

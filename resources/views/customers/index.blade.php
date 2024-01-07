@@ -109,9 +109,10 @@
                         form.submit();
                     }
                 });
-     );
+        });
     </script>
 
     </body>
 
     </html>
+    @endsection

@@ -12,15 +12,14 @@
                 <div class="card-body">
 
                     <div class="col-md-12">
-                        <h4 class="card-title">Categories Product</h4>
+                        <h4 class="card-title">Data Penjualan</h4>
                         <p class="card-description">
-                            List Kategori Produk yang ada di AmamyBakery
-
+                            Daftar Data Penjualan AmamyBakery
                         </p>
 
                         <div class="box box-warning">
                             <div class="box-header">
-                                <a href="{{ url('kategori_produk') }}">
+                                <a href="{{ url('dataPenjualan') }}">
                                     <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i
                                             class="fa fa-refresh"></i>
                                         Refresh</button>
@@ -38,18 +37,22 @@
                                     <thead>
                                         <tr>
                                             <table class="table align-items-center mb-0">
-                                                <th>Nama Kategori</th>
-
+                                                <th>Tanggal</th>
+                                                <th>Nama Produk</th>
+                                                <th>Total Penjualan</th>
+                                                <th>Total Harga</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <div class="d-flex px-2 py-1">
 
-                                            @foreach ($kategori_produks as $item)
+                                            @foreach ($data_penjualans as $item)
                                             <tr>
 
-                                                <td>{{ $item['nama_kategori'] }}
-
+                                                <td>{{ $item['tanggal'] }}</td>
+                                                <td>{{ $item['nama_produk'] }}</td>
+                                                <td>{{ $item['total_penjualan'] }}</td>
+                                                <td>{{ $item['total_harga'] }}</td>
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('kategori_produk.edit', $item->id) }}">
@@ -81,38 +84,4 @@
             </div>
         </div>
     </div>
-    @endsection
-
-    @section('scripts')
-    <script>
-        @if (Session:: get('success'))
-        toastr.success("{{ Session::get('success') }}");
-        @endif
-    </script>
-
-    <script type="text/javascript">
-        $('.show_confirm').click(function (event) {
-            var form = $(this).closest("form");
-            var nama = $(this).data("nama");
-            event.preventDefault();
-            swal({
-                title: `Apakah Anda yakin ingin menghapus data ${nama} ini?`,
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-                    }
-                });
-        });
-    </script>
-
-    </body>
-
-    </html>
-
-
     @endsection

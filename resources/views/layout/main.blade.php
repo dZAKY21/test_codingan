@@ -10,6 +10,8 @@
     @yield('title')
   </title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+
 
   <link rel="canonical" href="{{ asset('https://www.creative-tim.com/product/soft-ui-dashboard') }}" />
 
@@ -195,7 +197,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="{{ url('data_penjualan') }}">
+          <a class="nav-link  " href="{{ url('dataPenjualan') }}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -633,7 +635,11 @@
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
     integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
     data-cf-beacon='{"rayId":"83536eea9ebc68e2","version":"2023.10.0","token":"1b7cbb72744b40c580f8633c6b62637e"}'
-    crossorigin="anonymous"></script>@yield('scripts')
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+  @yield('scripts')
 </body>
 
 </html>

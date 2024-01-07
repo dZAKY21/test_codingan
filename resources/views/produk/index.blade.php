@@ -19,7 +19,7 @@
                         </p>
                         <div class="box box-warning">
                             <div class="box-header">
-                                <a href="{{ url('pruduk') }}">
+                                <a href="{{ url('produk') }}">
                                     <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i
                                             class="fa fa-refresh"></i>
                                         Refresh</button>

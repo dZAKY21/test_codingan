@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DataPenjualanController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,4 @@ Route::get('/', function () {
 Route::resource('produk', ProdukController::class);
 Route::resource('kategori_produk', KategoriProdukController::class);
 Route::resource('customers', CustomerController::class);
+Route::resource('dataPenjualan', DataPenjualanController::class);
