@@ -1,9 +1,9 @@
 @extends('layout.main')
-@section('title', 'Kategori Produk')
+@section('title', 'Data Penjualan')
 
 @section('content')
 
-<div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+<div class="col-lg-8 col-md-6 mb-md-0 mb-4">
     <div class="card">
         <div class="card-header pb-0">
 
@@ -24,7 +24,7 @@
                                             class="fa fa-refresh"></i>
                                         Refresh</button>
 
-                                    <a href="{{ route('kategori_produk.create') }}"
+                                    <a href="{{ route('dataPenjualan.create') }}"
                                         class="btn btn-sm btn-flat btn-primary">Tambah</a>
                                 </a>
 
@@ -53,13 +53,14 @@
                                                 <td>{{ $item['nama_produk'] }}</td>
                                                 <td>{{ $item['total_penjualan'] }}</td>
                                                 <td>{{ $item['total_harga'] }}</td>
+                                                <td>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('kategori_produk.edit', $item->id) }}">
+                                            <a href="{{ route('dataPenjualan.edit', $item->id) }}">
                                                 <button class="btn btn-success  btn-xs mx-3">Edit</button>
                                             </a>
                                             <form method="POST"
-                                                action="{{ route('kategori_produk.destroy', $item->id) }}">
+                                                action="{{ route('dataPenjualan.destroy', $item->id) }}">
                                                 @method('delete')
                                                 @csrf
 

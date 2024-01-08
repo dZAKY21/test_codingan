@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'produk')
+@section('title', 'Data Penjualan')
 
 @section('content')
 
@@ -10,16 +10,23 @@
 
             <div class="row">
                 <div class="card-body">
-                    <h4 class="card-title">Product</h4>
+                    <h4 class="card-title">Data Penjualan</h4>
                     <p class="card-description">
-                        Formulir Product
+                        Formulir Data Penjualan
 
                     </p>
 
-                    <form class="forms-sample" method="POST" action="{{ route('produk.store') }}"
+                    <form class="forms-sample" method="POST" action="{{ route('dataPenjualan.store') }}"
                         enctype="multipart/form-data">
                         @csrf
 
+                        <div class="form-group">
+                            <label for="nama">Tanggal</label>
+                            <input type="date" class="form-control" name="tanggal" placeholder="Tanggal">
+                            @error('tanggal')
+                            <label class="text-danger">{{ $message }} </label>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label for="nama">Nama Produk</label>
                             <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
@@ -28,30 +35,23 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Harga</label>
-                            <input type="text" class="form-control" name="harga" placeholder="Harga">
-                            @error('harga')
+                            <label for="nama">Total Penjualan</label>
+                            <input type="text" class="form-control" name="total_penjualan"
+                                placeholder="Total Penjualan">
+                            @error('total_penjualan')
                             <label class="text-danger">{{ $message }} </label>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nama">Stok</label>
-                            <input type="text" class="form-control" name="stok" placeholder="Stok">
-                            @error('stok')
+                            <label for="nama">Total Harga</label>
+                            <input type="text" class="form-control" name="total_harga" placeholder="Total Penjualan">
+                            @error('total_harga')
                             <label class="text-danger">{{ $message }} </label>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="nama">Deskripsi</label>
-                            <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi">
-                            @error('deskripsi')
-                            <label class="text-danger">{{ $message }} </label>
-                            @enderror
-                        </div>
-
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a href="{{ url('produk') }}" class="btn btn-light">Batal</button></a>
+                        <a href="{{ url('dataPenjualan') }}" class="btn btn-light">Batal</button></a>
                     </form>
                 </div>
             </div>

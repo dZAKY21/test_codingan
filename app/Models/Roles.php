@@ -10,6 +10,7 @@ class Roles extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $table = 'roles';
     protected $fillable = [
         'admin',
         'customer'

@@ -114,14 +114,14 @@
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="{{ asset('images/') }} " target="_blank">
-        <img src="img\font-images\amamybakery.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="img\font-images\amamybakery.png" class="navbar-brand-img h-100">
       </a>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  active" href="{{ asset('pages/dashboard.html') }}">
+          <a class="nav-link  active" href="{{ asset('home') }}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +255,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="{{ asset('roles') }}">
+          <a class="nav-link  " href="{{ url('supplier') }}">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -280,7 +280,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Roles</span>
+            <span class="nav-link-text ms-1">Suppliers</span>
           </a>
         </li>
         <li class="nav-item mt-3">
@@ -638,6 +638,8 @@
     crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
 
   @yield('scripts')
 </body>

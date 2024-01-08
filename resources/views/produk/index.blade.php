@@ -50,7 +50,24 @@
                                                 <td>{{ $item['harga'] }}</td>
                                                 <td>{{ $item['stok'] }}</td>
                                                 <td>{{ $item['deskripsi'] }}</td>
+                                                <td>
                                         </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{ route('produk.edit', $item->id) }}">
+                                                <button class="btn btn-success  btn-xs mx-3">Edit</button>
+                                            </a>
+                                            <form method="POST" action="{{ route('produk.destroy', $item->id) }}">
+                                                @method('delete')
+                                                @csrf
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit"
+                                                    class="btn btn-xs btn-danger btn-rounded show_confirm"
+                                                    data-toggle="tooltip" title='Delete'
+                                                    data-nama='{{ $item->nama }}'>Hapus</button>
+                                            </form>
+                                        </div>
+                                        </td>
+                                        </tr>
                                         @endforeach
 
                                     </tbody>

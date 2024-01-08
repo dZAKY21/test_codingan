@@ -13,7 +13,8 @@ class DataPenjualanController extends Controller
     public function index()
     {
         $data_penjualans = DataPenjualan::all();
-        return view("dataPenjualan.index", compact("dataPenjualan"));
+        return view('dataPenjualan.index', compact('data_penjualans'));
+
     }
 
     /**
@@ -22,7 +23,7 @@ class DataPenjualanController extends Controller
     public function create()
     {
         $data_penjualans = DataPenjualan::all();
-        return view("dataPenjualan.create")->with("dataPenjualan", $data_penjualans);
+        return view("dataPenjualan.create")->with("data_Penjualans", $data_penjualans);
 
 
     }
@@ -32,7 +33,18 @@ class DataPenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            "tanggal" => "required",
+            "nama_produk" => "required",
+            "total_penjulaan" => "required",
+            "total_harga" => "required"
+
+        ]);
+
+        // simpan data ke tabel fakultas
+        DataPenjualan::create($validasi);
+
+        return redirect("dataPenjualan")->with("success", "Data data penjualan berhasil disimpan");
     }
 
     /**
@@ -46,24 +58,38 @@ class DataPenjualanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DataPenjualan $dataPenjualan)
+    public function edit($id)
     {
-        //
+        $data_penjualans = DataPenjualan::find($id);        //dd(customer);
+        return view("dataPenjualan.edit")->with("data_penjualans", $data_penjualans);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DataPenjualan $dataPenjualan)
+    public function update(Request $request, DataPenjualan $data_penjualans)
     {
-        //
+        $validasi = $request->validate([
+            "tanggal" => "required",
+            "nama_produk" => "required",
+            "total_penjulaan" => "required",
+            "total_harga" => "required"
+
+        ]);
+
+        // simpan data ke tabel fakultas
+        $data_penjualans->update($validasi);
+
+        return redirect("dataPenjualan")->with("success", "Data penjualan berhasil disimpan");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DataPenjualan $dataPenjualan)
+    public function destroy($id)
     {
-        //
+        $data_penjualans = DataPenjualan::find($id);
+        $data_penjualans->delete();
+        return redirect("dataPenjualan")->with("success", "Berhasil Dihapus");
     }
 }

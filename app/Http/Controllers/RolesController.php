@@ -12,7 +12,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Roles::all();
+        return view("roles.index")->with("roles", $roles);
     }
 
     /**
@@ -20,7 +21,8 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Roles::all();
+        return view("roles.create")->with("roles", $roles);
     }
 
     /**
@@ -28,7 +30,13 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            "admin" => "required",
+            "customer" => "required",
+
+        ]);
+        Roles::create($validasi);
+        return redirect("roles")->with("success", "Data roles berhasil Disimpan");
     }
 
     /**
@@ -42,9 +50,10 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Roles $roles)
+    public function edit($id)
     {
-        //
+        $roles = Roles::find($id);
+        return view("roles.edit")->with("roles", $roles);
     }
 
     /**
@@ -52,14 +61,22 @@ class RolesController extends Controller
      */
     public function update(Request $request, Roles $roles)
     {
-        //
+        $validasi = $request->validate([
+            "admin" => "required",
+            "customer" => "required",
+
+        ]);
+        $roles->update($validasi);
+        return redirect("roles")->with("success", "Data roles berhasil Disimpan");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Roles $roles)
+    public function destroy($id)
     {
-        //
+        $roles = Roles::find($id);
+        $roles->delete();
+        return redirect("roles")->with("success", "Berhasil Dihapus");
     }
 }
